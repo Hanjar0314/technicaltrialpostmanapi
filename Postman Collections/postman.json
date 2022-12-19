@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "b078bbe4-605f-4a87-9a08-2dd27371681e",
+		"name": "AutumationTestForAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PostmanAutomation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4e31d60-4201-48d2-aa15-be7deeb0ca46",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response=pm.response.json();\r",
+							"console.log(response.status);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "a8479d14-a2fe-4d04-a635-f30f2b602e7b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{accessToken}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    “number”: 111111\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/numberprettify/:enterNumber",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"numberprettify",
+						":enterNumber"
+					],
+					"variable": [
+						{
+							"key": "enterNumber",
+							"value": "111111",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c12c63f2-1254-4fdd-9564-36a609445210",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "cd94a686-0bfe-492d-aa33-1b6863726375",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "fb5f12b8-f3f5-4bd8-8b02-72f46a243e95",
+			"key": "baseurl",
+			"value": "https://www.testapi.com/",
+			"type": "string"
+		}
+	]
+}
